@@ -1,0 +1,69 @@
+.rendercard {
+  height: 87px;
+  width: 479px;
+  border: 1px solid #C3C3C3;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: start;
+  align-items: center;
+
+  &__message {
+    font-size: 16px;
+  }
+
+ &.happy {
+  border: 1px solid #1D9A39;
+  color: #1D9A39
+ }
+ &.sad {
+  border: 1px solid #FB9635;
+  color: #FB9635
+ }
+ &.angry {
+  border: 1px solid #F94747;
+  color: #F94747
+ }
+
+ &__icon {
+  border-radius: 50%;
+  padding: 5px;
+  color: #f9c23c;
+
+  &.happy {
+    background-color: #D0ECD8;
+    border: 1px solid #1D9A39
+  }
+  &.sad {
+    background-color: #F9E4D2;
+    border: 1px solid #FB9635
+  }
+  &.angry {
+    background-color: #F7E3E5;
+    border: 1px solid #F94747
+  }
+ }
+
+ &__info {
+  display: flex;
+  flex-direction: column;
+  gap: -10px;
+  align-items: center;
+
+  // &.happy {
+  //   color: #1D9A39;
+  // }
+  // &.sad {
+  //   color: #FB9635;
+  // }
+  // &.angry {
+  //   color: #F94747;
+  // }
+ }
+
+ 
+
+}
+
