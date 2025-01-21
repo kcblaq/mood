@@ -56,7 +56,7 @@ export default function RenderComponent({mood, moodHistory} : Props) {
 
       // <RenderCard icon={Moods[mood] } moodMessage={MoodMessage[mood]} mood={mood} timestamp={new Date().toLocaleString()} />
       
-       ( moodHistory.map((mood: MoodType, index: number) => {
+       ( moodHistory.slice().reverse().map((mood: MoodType, index: number) => {
           return <RenderCard key={index} icon={Moods[mood]} mood={mood} timestamp={new Date().toLocaleString()} moodMessage={MoodMessage[mood]} />
         }))
       
