@@ -9,10 +9,12 @@ export default function Home() {
   const [mood, setMood] = useState<MoodType>("none");
   const [moodHistory, setMoodHistory] = useState<MoodType[]>([]);
 
-  function historyUpdate(){
-    setMoodHistory([...moodHistory, mood])
-    setMood("none")
-  }
+  const handleMoodSave = (newMood: MoodType) => {
+    setMoodHistory([...moodHistory, newMood]);
+  };
+  console.log("MOOD HISTORY", moodHistory)
+
+  console.log("MOOD", mood)
   const MoodMessage = {
     happy: "Cat was super excited!",
     sad: "Cat was indifferent",
@@ -22,7 +24,7 @@ export default function Home() {
 
   return (
     <main className={`main`}>
-      <Card setMood={setMood} mood={mood} moodMessage={MoodMessage[mood]}/>
+      <Card setMood={setMood} mood={mood} moodMessage={MoodMessage[mood]} onSaveMood={handleMoodSave}/>
       {/* <RenderCard/> */}
       <RenderComponent  mood={mood} moodHistory={moodHistory} />
 

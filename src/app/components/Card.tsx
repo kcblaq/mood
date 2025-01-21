@@ -20,9 +20,10 @@ interface Props {
     setMood: (mood: MoodType) => void;
     mood: MoodType;
     moodMessage?: string;
+    onSaveMood: (mood: MoodType) => void;
 }
 
-export default function Card({ setMood, mood, moodMessage }: Props) {
+export default function Card({ setMood, mood, moodMessage, onSaveMood }: Props) {
     const [buttonState, setButtonState] = useState(true)
 
     const handleMoodSet = (moodType: MoodType) => {
@@ -55,14 +56,12 @@ export default function Card({ setMood, mood, moodMessage }: Props) {
                 {mood !== "none" && <p className={`card__msg ${mood}`}>{moodMessage}</p>}
             </div>
             <div className=''>
-
-
                 <button
                     className="button"
                     disabled={buttonState}
                     onClick={() => {
-                        handleMoodSet(mood)
-                        setButtonState(false)
+                        onSaveMood(mood);
+                        setButtonState(true);
                     }}
                 >
                     Save mood
