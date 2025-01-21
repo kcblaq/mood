@@ -38,8 +38,30 @@
     background-color: #f0e7e7;
     padding: 10px;
     &:hover {
-      background-color: #f4d4d4;
+      background-color: #D6F3DC;
+      border: 1px solid #1D9A39;
     }
+
+    &--selected {
+      background-color: #D6F3DC;
+      border: 1px solid #1D9A39;
+    }
+  }
+
+  &__msg {
+    text-align: center;
+    &.happy {
+      // border: 1px solid #1D9A39;
+      color: #1D9A39
+     }
+     &.sad {
+      // border: 1px solid #FB9635;
+      color: #FB9635
+     }
+     &.angry {
+      // border: 1px solid #F94747;
+      color: #F94747
+     }
   }
 }
 

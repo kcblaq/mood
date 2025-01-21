@@ -20,17 +20,22 @@ const Moods = {
   happy: <BiHappy size={40} />,
   none: ""
 }
-const MoodMessage = {
+export const MoodMessage = {
   happy: "Cat was super excited!",
   sad: "Cat was indifferent",
   angry: "Cat wasn’t having it",
   none: ""
 }
-    
-export default function RenderComponent() {
-  const [mood, setMood] = React.useState<keyof typeof Moods>("none");
 
-  const moodHistory = [];
+interface Props {
+  mood: MoodType;
+  moodHistory: MoodType[];
+}
+    
+export default function RenderComponent({mood, moodHistory} : Props) {
+  // const [mood, setMood] = React.useState<keyof typeof Moods>("none");
+
+  // const moodHistory = [];
   return (
     <div className='render'>
       <div className="render__top">
@@ -47,8 +52,14 @@ export default function RenderComponent() {
         mood === "none" ? 
         <EmptyMood />
         :
+        
 
-      <RenderCard icon={Moods[mood] } moodMessage={MoodMessage[mood]} mood={mood} timestamp={new Date().toLocaleString()} />
+      // <RenderCard icon={Moods[mood] } moodMessage={MoodMessage[mood]} mood={mood} timestamp={new Date().toLocaleString()} />
+      
+       ( moodHistory.map((mood: MoodType, index: number) => {
+          return <RenderCard key={index} icon={Moods[mood]} mood={mood} timestamp={new Date().toLocaleString()} moodMessage={MoodMessage[mood]} />
+        }))
+      
       }
     </div>
   )
